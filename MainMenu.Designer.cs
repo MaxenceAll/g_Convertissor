@@ -46,7 +46,7 @@
             this.labelBienvenue.Size = new System.Drawing.Size(773, 99);
             this.labelBienvenue.TabIndex = 0;
             this.labelBienvenue.Text = "Bienvenue sur le convertissor !";
-            this.labelBienvenue.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelBienvenue.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // flowLayoutPanel1
             // 
@@ -77,7 +77,6 @@
             this.buttonMonnaie.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonMonnaie.BackgroundImage")));
             this.buttonMonnaie.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.buttonMonnaie.Font = new System.Drawing.Font("Engravers MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.buttonMonnaie.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.buttonMonnaie.Location = new System.Drawing.Point(277, 3);
             this.buttonMonnaie.Name = "buttonMonnaie";
             this.buttonMonnaie.Size = new System.Drawing.Size(234, 156);
@@ -96,6 +95,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "MainMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Convertissor - Main Menu";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

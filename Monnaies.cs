@@ -23,17 +23,19 @@ namespace g_Convertissor
         {
             InitializeComponent();            
             //Ajout de la table de conversion dans la hashmap :
-            conversionMap.Add("Dollar", 1);
-            conversionMap.Add("Euro", 0.94659594);
-            conversionMap.Add("Pounds", 0.81416675);
-            conversionMap.Add("Yen", 135.76175);
-            //Avoir dans le combobox les keys (monnaies) dispos dans conversionMap (hashmap):
-            comboBoxSource.DataSource= conversionMap.Keys.ToList();
-            comboBoxResultat.DataSource= conversionMap.Keys.ToList();
+            conversionMap.Add("dollar", 1);
+            conversionMap.Add("euro", 0.94659594);
+            conversionMap.Add("pounds", 0.81416675);
+            conversionMap.Add("yen", 135.76175);
+            majDataGridView();
+        }
+        private void majDataGridView()
+        {
             //remplir la gridview avec le contenu de la hashmap conversionMap (hashmap = 2 list, donc il faut convertir 1list key ET 1list Value) :
-            dataGridView1.DataSource  = (from map in conversionMap select new { map.Key, map.Value } ).ToList();
-            //changer la topleft cell :
-            //dataGridView1.TopLeftHeaderCell.Value = "Table de conversion!";
+            dataGridView1.DataSource = (from map in conversionMap select new { map.Key, map.Value }).ToList();
+            //Avoir dans le combobox les keys (monnaies) dispos dans conversionMap (hashmap): 
+            comboBoxSource.DataSource = conversionMap.Keys.ToList();
+            comboBoxResultat.DataSource = conversionMap.Keys.ToList();
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -100,17 +102,21 @@ namespace g_Convertissor
             await Task.Delay(1000);
             labelClipBoard.Visible = false;
         }
-
         private async void buttonExport_Click(object sender, EventArgs e)
         {
-
             string[] toSave = sauvegardesWithNow.ToArray();
-            File.AppendAllLines(@"C:\temp\test.txt", toSave);
+            string folderPath = "";
+            //saveFileDialog1.FileName = "Folder Selection.";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = Path.GetDirectoryName(saveFileDialog1.FileName);
+            }
+            //File.AppendAllLines(folderPath+"\\"+saveFileDialog1.FileName, toSave);
+            File.AppendAllLines(saveFileDialog1.FileName, toSave);
             labelExport.Visible = true;
-            await Task.Delay(1000);
+            await Task.Delay(3000);
             labelExport.Visible = false;
         }
-
         private async void buttonImport_Click(object sender, EventArgs e)
         {
             // split pour supprimer le now afin d'importer sans le now();
@@ -118,8 +124,34 @@ namespace g_Convertissor
             sauvegardes.AddRange(toLoad);
             comboBoxSauvegarde.DataSource = sauvegardes.ToArray();
             labelImport.Visible = true;
-            await Task.Delay(1000);
+            await Task.Delay(3000);
             labelImport.Visible = false;
+        }
+        private void buttonAddCurrency_Click(object sender, EventArgs e)
+        {
+            string newName = Microsoft.VisualBasic.Interaction.InputBox("Merci de saisir le nom de la monnaie à ajouter.", "Ajout d'une monnaie - nom");
+            double newTaux = Convert.ToDouble(Microsoft.VisualBasic.Interaction.InputBox("Merci de saisir le taux de la monnaie à ajouter.", "Ajout d'une monnaie - taux"));
+            conversionMap.Add(newName, newTaux);
+            majDataGridView();
+        }
+        private void buttonModifyCurrency_Click(object sender, EventArgs e)
+        {
+            string currencyToModifyName = Microsoft.VisualBasic.Interaction.InputBox("Merci de saisir le nom de la monnaie à modifier.", "Modification d'une monnaie - nom");
+            conversionMap.Remove(currencyToModifyName);
+            string newName = Microsoft.VisualBasic.Interaction.InputBox("Merci de saisir le nouveau de la monnaie.", "Ajout d'une monnaie - nom");
+            double newTaux = Convert.ToDouble(Microsoft.VisualBasic.Interaction.InputBox("Merci de saisir le nouveau taux.", "Ajout d'une monnaie - taux"));
+            conversionMap.Add(newName, newTaux);
+            majDataGridView();
+        }
+        private void buttonRemoveCurrency_Click(object sender, EventArgs e)
+        {
+            string currencyToRemoveName = Microsoft.VisualBasic.Interaction.InputBox("Merci de saisir le nom de la monnaie à supprimer.", "Retrait d'une monnaie - nom");
+            conversionMap.Remove(currencyToRemoveName);
+            majDataGridView();
+        }
+        private void buttonMajCurrency_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Not yet implemented !! ☺☺☺");
         }
     }
 }
