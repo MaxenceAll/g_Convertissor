@@ -51,8 +51,8 @@
             this.buttonExport = new System.Windows.Forms.Button();
             this.comboBoxSauvegarde = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.labelClipBoard = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.labelClipBoard = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.labelResultat = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -120,6 +120,7 @@
             this.textBoxResultat.Font = new System.Drawing.Font("Engravers MT", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.textBoxResultat.Location = new System.Drawing.Point(655, 61);
             this.textBoxResultat.Name = "textBoxResultat";
+            this.textBoxResultat.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.textBoxResultat.Size = new System.Drawing.Size(200, 28);
             this.textBoxResultat.TabIndex = 4;
             this.textBoxResultat.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -210,7 +211,6 @@
             this.groupBox1.Controls.Add(this.buttonExport);
             this.groupBox1.Controls.Add(this.comboBoxSauvegarde);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.labelClipBoard);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
@@ -304,7 +304,7 @@
             this.labelImport.AutoSize = true;
             this.labelImport.BackColor = System.Drawing.SystemColors.Info;
             this.labelImport.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelImport.Location = new System.Drawing.Point(521, 374);
+            this.labelImport.Location = new System.Drawing.Point(521, 434);
             this.labelImport.Name = "labelImport";
             this.labelImport.Size = new System.Drawing.Size(151, 13);
             this.labelImport.TabIndex = 22;
@@ -316,7 +316,7 @@
             this.labelExport.AutoSize = true;
             this.labelExport.BackColor = System.Drawing.SystemColors.Info;
             this.labelExport.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelExport.Location = new System.Drawing.Point(416, 374);
+            this.labelExport.Location = new System.Drawing.Point(416, 434);
             this.labelExport.Name = "labelExport";
             this.labelExport.Size = new System.Drawing.Size(149, 13);
             this.labelExport.TabIndex = 21;
@@ -330,7 +330,7 @@
             this.buttonImport.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonImport.Image = ((System.Drawing.Image)(resources.GetObject("buttonImport.Image")));
             this.buttonImport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonImport.Location = new System.Drawing.Point(521, 345);
+            this.buttonImport.Location = new System.Drawing.Point(521, 405);
             this.buttonImport.Name = "buttonImport";
             this.buttonImport.Size = new System.Drawing.Size(99, 26);
             this.buttonImport.TabIndex = 20;
@@ -347,7 +347,7 @@
             this.buttonExport.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonExport.Image = ((System.Drawing.Image)(resources.GetObject("buttonExport.Image")));
             this.buttonExport.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonExport.Location = new System.Drawing.Point(416, 345);
+            this.buttonExport.Location = new System.Drawing.Point(416, 405);
             this.buttonExport.Name = "buttonExport";
             this.buttonExport.Size = new System.Drawing.Size(99, 26);
             this.buttonExport.TabIndex = 19;
@@ -363,7 +363,7 @@
             this.comboBoxSauvegarde.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxSauvegarde.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxSauvegarde.FormattingEnabled = true;
-            this.comboBoxSauvegarde.Location = new System.Drawing.Point(626, 345);
+            this.comboBoxSauvegarde.Location = new System.Drawing.Point(626, 405);
             this.comboBoxSauvegarde.Name = "comboBoxSauvegarde";
             this.comboBoxSauvegarde.Size = new System.Drawing.Size(272, 26);
             this.comboBoxSauvegarde.TabIndex = 18;
@@ -372,36 +372,37 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Engravers MT", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(386, 317);
+            this.label7.Location = new System.Drawing.Point(386, 377);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(512, 22);
             this.label7.TabIndex = 16;
             this.label7.Text = "Liste des dernières opérations :";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.BackColor = System.Drawing.Color.Teal;
+            this.groupBox2.Controls.Add(this.labelClipBoard);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.labelResultat);
+            this.groupBox2.Font = new System.Drawing.Font("Engravers MT", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(416, 197);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(449, 174);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Resultat :";
             // 
             // labelClipBoard
             // 
             this.labelClipBoard.AutoSize = true;
             this.labelClipBoard.BackColor = System.Drawing.SystemColors.Info;
             this.labelClipBoard.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelClipBoard.Location = new System.Drawing.Point(620, 304);
+            this.labelClipBoard.Location = new System.Drawing.Point(204, 141);
             this.labelClipBoard.Name = "labelClipBoard";
             this.labelClipBoard.Size = new System.Drawing.Size(245, 13);
             this.labelClipBoard.TabIndex = 14;
             this.labelClipBoard.Text = "Copie dans le presse-papier avec succès!";
             this.labelClipBoard.Visible = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.Teal;
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.labelResultat);
-            this.groupBox2.Font = new System.Drawing.Font("Engravers MT", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(416, 197);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(449, 104);
-            this.groupBox2.TabIndex = 13;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Resultat :";
             // 
             // button2
             // 
@@ -409,7 +410,7 @@
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(393, 48);
+            this.button2.Location = new System.Drawing.Point(393, 118);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(50, 50);
             this.button2.TabIndex = 13;
@@ -419,10 +420,10 @@
             // 
             // labelResultat
             // 
-            this.labelResultat.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelResultat.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelResultat.Location = new System.Drawing.Point(6, 31);
             this.labelResultat.Name = "labelResultat";
-            this.labelResultat.Size = new System.Drawing.Size(433, 63);
+            this.labelResultat.Size = new System.Drawing.Size(433, 140);
             this.labelResultat.TabIndex = 12;
             this.labelResultat.Text = "Merci de faire votre saisie !";
             // 
@@ -504,6 +505,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

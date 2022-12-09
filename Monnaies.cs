@@ -76,7 +76,7 @@ namespace g_Convertissor
                     resultat = Math.Round(source * taux, 2);
                     textBoxResultat.Text = Convert.ToString(resultat);
                     labelResultat.BackColor = Color.Teal;
-                    labelResultat.Text = "--   Vous voulez convertir des '" + (Convert.ToString(comboBoxSource.SelectedItem)).ToUpper() + "' en '" + (Convert.ToString(comboBoxResultat.SelectedItem)).ToUpper() + "'.";
+                    labelResultat.Text = "--   Vous voulez convertir des \n'" + (Convert.ToString(comboBoxSource.SelectedItem)).ToUpper() + "' en '" + (Convert.ToString(comboBoxResultat.SelectedItem)).ToUpper() + "'.";
                     labelResultat.Text += "\n--   Le taux pour cette conversion est " + taux + ".";
                     labelResultat.Text += "\n--   " + (textBoxSource.Text) + ((Convert.ToString(comboBoxSource.SelectedItem)).ToLower()) + " = " + (textBoxResultat.Text) + ((Convert.ToString(comboBoxResultat.SelectedItem)).ToLower()) + ".";
                 }
@@ -105,13 +105,11 @@ namespace g_Convertissor
         private async void buttonExport_Click(object sender, EventArgs e)
         {
             string[] toSave = sauvegardesWithNow.ToArray();
-            string folderPath = "";
-            //saveFileDialog1.FileName = "Folder Selection.";
+            string folderPath = "";            
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 folderPath = Path.GetDirectoryName(saveFileDialog1.FileName);
-            }
-            //File.AppendAllLines(folderPath+"\\"+saveFileDialog1.FileName, toSave);
+            }            
             File.AppendAllLines(saveFileDialog1.FileName, toSave);
             labelExport.Visible = true;
             await Task.Delay(3000);
@@ -119,8 +117,18 @@ namespace g_Convertissor
         }
         private async void buttonImport_Click(object sender, EventArgs e)
         {
-            // split pour supprimer le now afin d'importer sans le now();
-            string[] toLoad = (File.ReadAllLines(@"C:\temp\test.txt"));
+            // A FAIRE : split pour supprimer le now afin d'importer sans le now();            
+            string folderPath = "";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                folderPath = Path.GetFullPath(openFileDialog1.FileName);
+            }
+            //MessageBox.Show(Convert.ToString (folderPath));
+            string[] toLoad = (File.ReadAllLines(folderPath));
+            for (int i = 0 ; i < toLoad.Length ; i++)
+            {
+                toLoad[i] = toLoad[i].Remove(0, 19);
+            }
             sauvegardes.AddRange(toLoad);
             comboBoxSauvegarde.DataSource = sauvegardes.ToArray();
             labelImport.Visible = true;
